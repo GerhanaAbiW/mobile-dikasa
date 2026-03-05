@@ -5,25 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b500d2f-c5cb-49e8-8fc5-148e05f34325" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/assets/icons/location.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/assets/icons/shop.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/dropdown_field/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/table/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/text_field/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/core/constants/colors.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/core/themes/text_styles.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/core/utils/convert_color_hex_to_argb.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/core/utils/formatted_date.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/device/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/login/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/new_order/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/product/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/register/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/report/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/reservation/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/transaction_history/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile_dikasa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mobile_dikasa.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +46,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3AQiul1eJvfnnOfFQG76VjSiOkk" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" />
@@ -76,6 +66,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
@@ -86,6 +77,7 @@
     "io.flutter.project.isFirstOpen": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/user/OneDrive/Documents/Flutter/mobile_dikasa",
+    "settings.editor.selected.configurable": "dart.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
