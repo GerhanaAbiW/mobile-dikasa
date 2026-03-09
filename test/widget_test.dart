@@ -1,30 +1,28 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:mobile_dikasa/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('App shows splash flow', (WidgetTester tester) async {
+    await tester.pumpWidget(const MobileDikasaApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    final Finder splashLogoFinder = find.byWidgetPredicate((Widget widget) {
+      if (widget is! Image) {
+        return false;
+      }
+      if (widget.image is! AssetImage) {
+        return false;
+      }
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      return (widget.image as AssetImage).assetName ==
+          'lib/assets/images/splash_screen/dikasa_logo_splash_screen.png';
+    });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.byType(MaterialApp), findsOneWidget);
+    expect(splashLogoFinder, findsNothing);
+
+    await tester.pump(const Duration(milliseconds: 1300));
+
+    expect(splashLogoFinder, findsOneWidget);
   });
 }
