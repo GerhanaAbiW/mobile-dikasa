@@ -85,23 +85,27 @@ class DropdownField<T> extends StatelessWidget {
     final Color resolvedBorderColor = borderColor ?? AppColors.cD9D9D9;
     final Color resolvedFocusedBorderColor =
         focusedBorderColor ?? AppColors.c097BC2;
-    final Color resolvedErrorBorderColor = errorBorderColor ?? AppColors.c9D1414;
+    final Color resolvedErrorBorderColor =
+        errorBorderColor ?? AppColors.c9D1414;
 
-    final TextStyle resolvedTextStyle = textStyle ??
+    final TextStyle resolvedTextStyle =
+        textStyle ??
         const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w500,
           color: Colors.black87,
         );
 
-    final TextStyle resolvedLabelStyle = labelStyle ??
+    final TextStyle resolvedLabelStyle =
+        labelStyle ??
         const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           color: Colors.black87,
         );
 
-    final TextStyle resolvedHintStyle = hintStyle ??
+    final TextStyle resolvedHintStyle =
+        hintStyle ??
         TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w400,
@@ -118,7 +122,10 @@ class DropdownField<T> extends StatelessWidget {
               style: resolvedLabelStyle,
               children: isRequired
                   ? const <InlineSpan>[
-                      TextSpan(text: ' *', style: TextStyle(color: Colors.red)),
+                      TextSpan(
+                        text: ' *',
+                        style: TextStyle(color: Colors.red),
+                      ),
                     ]
                   : const <InlineSpan>[],
             ),
@@ -134,8 +141,11 @@ class DropdownField<T> extends StatelessWidget {
           autovalidateMode: autovalidateMode,
           isExpanded: isExpanded,
           menuMaxHeight: menuMaxHeight,
-          icon: icon ?? Icon(Icons.keyboard_arrow_down, color: AppColors.c707070),
-          hint: hintText == null ? null : Text(hintText!, style: resolvedHintStyle),
+          icon:
+              icon ?? Icon(Icons.keyboard_arrow_down, color: AppColors.c707070),
+          hint: hintText == null
+              ? null
+              : Text(hintText!, style: resolvedHintStyle),
           style: resolvedTextStyle,
           decoration: InputDecoration(
             helperText: helperText,
@@ -170,4 +180,3 @@ class DropdownField<T> extends StatelessWidget {
     );
   }
 }
-
