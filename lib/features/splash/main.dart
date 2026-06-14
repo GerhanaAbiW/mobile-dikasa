@@ -217,7 +217,7 @@ class _SplashMainLogo extends StatelessWidget {
   const _SplashMainLogo();
 
   static const String logoAssetPath =
-      'lib/assets/images/splash_screen/dikasa_logo_splash_screen.png';
+      'assets/images/dikasa_logo_splash_screen.png';
 
   @override
   Widget build(BuildContext context) {
