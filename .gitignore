@@ -2,6 +2,7 @@
 .dart_tool/
 .packages
 .pub/
+pubspec.lock
 build/
 
 # Generated files
@@ -65,7 +66,6 @@ __pycache__/
 # - test/
 # - integration_test/
 # - pubspec.yaml
-# - pubspec.lock
 # - analysis_options.yaml
 # - android/app/src/
 # - android/build.gradle
