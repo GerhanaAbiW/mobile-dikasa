@@ -10,8 +10,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  static const String _heroAssetPath = 'lib/assets/images/auth/login_hero.png';
-  static const String _logoAssetPath = 'lib/assets/images/auth/dikasa_logo.png';
+  static const String _heroAssetPath = 'assets/images/login_hero.png';
+  static const String _logoAssetPath = 'assets/images/dikasa_logo.png';
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _usernameController = TextEditingController();
