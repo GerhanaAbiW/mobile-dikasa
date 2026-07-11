@@ -313,7 +313,7 @@ class SearchableSelectField<T> extends StatelessWidget {
                                   )
                                 : ListView.separated(
                                     itemCount: filteredOptions.length,
-                                    separatorBuilder: (_, __) => Divider(
+                                    separatorBuilder: (_, _) => Divider(
                                       height: 1,
                                       color: AppColors.cEDEDED,
                                     ),
