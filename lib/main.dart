@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_dikasa/core/utils/api_error_handler.dart';
+import 'package:mobile_dikasa/core/utils/screen_utils.dart';
 import 'package:mobile_dikasa/features/login/main.dart';
 import 'package:mobile_dikasa/features/splash/main.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load();
   runApp(const MobileDikasaApp());
 }
 
@@ -11,11 +16,20 @@ class MobileDikasaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'DIKASA Mobile',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-      home: const _AppEntryPoint(),
+    return ScreenUtilInit(
+      designSize: ScreenConfig.designSize,
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: const _AppEntryPoint(),
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+          navigatorKey: appNavigatorKey,
+          title: 'DIKASA Mobile',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(useMaterial3: true),
+          home: child,
+        );
+      },
     );
   }
 }

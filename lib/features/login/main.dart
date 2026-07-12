@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dikasa/components/text_field/main.dart';
 import 'package:mobile_dikasa/core/constants/colors.dart';
+import 'package:mobile_dikasa/core/utils/screen_utils.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -48,9 +49,9 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: AppColors.cFFFFFF,
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          final bool isDesktop = constraints.maxWidth >= 1100;
+          final ScreenUtils screen = context.screen;
 
-          if (isDesktop) {
+          if (screen.isDesktop) {
             return Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -85,7 +86,12 @@ class _LoginPageState extends State<LoginPage> {
 
           return SafeArea(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
+              padding: EdgeInsets.fromLTRB(
+                screen.horizontalPagePadding,
+                screen.pagePadding.top,
+                screen.horizontalPagePadding,
+                screen.responsive<double>(mobile: 28, tablet: 36),
+              ),
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 560),
@@ -99,7 +105,12 @@ class _LoginPageState extends State<LoginPage> {
                           child: _LoginHeroPanel(assetPath: _heroAssetPath),
                         ),
                       ),
-                      const SizedBox(height: 22),
+                      SizedBox(
+                        height: screen.responsive<double>(
+                          mobile: 22,
+                          tablet: 30,
+                        ),
+                      ),
                       _LoginFormSection(
                         formKey: _formKey,
                         logoAssetPath: _logoAssetPath,
