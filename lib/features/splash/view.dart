@@ -2,24 +2,27 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_dikasa/core/constants/colors.dart';
+import 'package:mobile_dikasa/core/routing/app_routes.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({
+/// Halaman pembuka.
+///
+/// Murni animasi dua frame lalu berpindah ke halaman Login. Tidak ada data
+/// yang diambil di sini, sehingga halaman ini tidak memerlukan ViewModel.
+class SplashView extends StatefulWidget {
+  const SplashView({
     super.key,
     this.firstFrameDuration = const Duration(milliseconds: 1200),
     this.secondFrameDuration = const Duration(milliseconds: 1800),
-    this.onFinished,
   });
 
   final Duration firstFrameDuration;
   final Duration secondFrameDuration;
-  final VoidCallback? onFinished;
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashViewState extends State<SplashView> {
   _SplashFrameType _currentFrame = _SplashFrameType.zero;
   Timer? _firstFrameTimer;
   Timer? _finishTimer;
@@ -48,17 +51,15 @@ class _SplashScreenState extends State<SplashScreen> {
       });
     });
 
-    if (widget.onFinished != null) {
-      _finishTimer = Timer(
-        widget.firstFrameDuration + widget.secondFrameDuration,
-        () {
-          if (!mounted) {
-            return;
-          }
-          widget.onFinished?.call();
-        },
-      );
-    }
+    _finishTimer = Timer(
+      widget.firstFrameDuration + widget.secondFrameDuration,
+      () {
+        if (!mounted) {
+          return;
+        }
+        Navigator.of(context).pushReplacementNamed(AppRoutes.login);
+      },
+    );
   }
 
   @override

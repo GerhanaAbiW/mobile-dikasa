@@ -35,9 +35,29 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
+  # State management (MVVM) — store reaktif untuk tiap ViewModel.
+  mobx: ^2.6.0
+  flutter_mobx: ^2.3.0
+
+  # Dependency injection — menyediakan Repository & ViewModel ke widget tree.
+  provider: ^6.1.5+1
+
+  # HTTP client untuk lapisan Service.
+  dio: ^5.10.0
+
+  # Konfigurasi environment (base URL API) agar tidak hard-coded.
+  flutter_dotenv: ^6.0.1
+
+  # Render ikon SVG hasil export Figma di assets/icons/.
+  flutter_svg: ^2.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # Generator kode MobX (menghasilkan file *.g.dart).
+  build_runner: ^2.15.1
+  mobx_codegen: ^2.7.7
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -64,6 +84,8 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    # Dibaca oleh flutter_dotenv saat aplikasi start.
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

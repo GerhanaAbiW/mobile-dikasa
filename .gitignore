@@ -2,7 +2,6 @@
 .dart_tool/
 .packages
 .pub/
-pubspec.lock
 build/
 
 # Generated files
@@ -59,6 +58,8 @@ __pycache__/
 # Environment files
 .env
 .env.*
+# Kecuali template-nya, supaya anggota tim tahu key apa saja yang wajib diisi.
+!.env.example
 
 # Tetap dilacak di repo ini:
 # - lib/
