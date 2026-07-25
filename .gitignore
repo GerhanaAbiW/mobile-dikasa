@@ -31,6 +31,8 @@ linux/flutter/ephemeral/
 macos/Flutter/ephemeral/
 windows/flutter/ephemeral/
 
+pubspec.lock
+
 # VS Code
 .vscode/
 
