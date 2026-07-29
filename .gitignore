@@ -2,7 +2,6 @@
 .dart_tool/
 .packages
 .pub/
-pubspec.lock
 build/
 
 # Generated files
@@ -32,6 +31,8 @@ linux/flutter/ephemeral/
 macos/Flutter/ephemeral/
 windows/flutter/ephemeral/
 
+pubspec.lock
+
 # VS Code
 .vscode/
 
@@ -59,6 +60,8 @@ __pycache__/
 # Environment files
 .env
 .env.*
+# Kecuali template-nya, supaya anggota tim tahu key apa saja yang wajib diisi.
+!.env.example
 
 # Tetap dilacak di repo ini:
 # - lib/

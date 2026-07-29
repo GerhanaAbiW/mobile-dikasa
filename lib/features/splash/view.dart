@@ -2,25 +2,27 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_dikasa/core/constants/colors.dart';
-import 'package:mobile_dikasa/core/utils/screen_utils.dart';
+import 'package:mobile_dikasa/core/routing/app_routes.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({
+/// Halaman pembuka.
+///
+/// Murni animasi dua frame lalu berpindah ke halaman Login. Tidak ada data
+/// yang diambil di sini, sehingga halaman ini tidak memerlukan ViewModel.
+class SplashView extends StatefulWidget {
+  const SplashView({
     super.key,
     this.firstFrameDuration = const Duration(milliseconds: 1200),
     this.secondFrameDuration = const Duration(milliseconds: 1800),
-    this.onFinished,
   });
 
   final Duration firstFrameDuration;
   final Duration secondFrameDuration;
-  final VoidCallback? onFinished;
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashViewState extends State<SplashView> {
   _SplashFrameType _currentFrame = _SplashFrameType.zero;
   Timer? _firstFrameTimer;
   Timer? _finishTimer;
@@ -49,17 +51,15 @@ class _SplashScreenState extends State<SplashScreen> {
       });
     });
 
-    if (widget.onFinished != null) {
-      _finishTimer = Timer(
-        widget.firstFrameDuration + widget.secondFrameDuration,
-        () {
-          if (!mounted) {
-            return;
-          }
-          widget.onFinished?.call();
-        },
-      );
-    }
+    _finishTimer = Timer(
+      widget.firstFrameDuration + widget.secondFrameDuration,
+      () {
+        if (!mounted) {
+          return;
+        }
+        Navigator.of(context).pushReplacementNamed(AppRoutes.login);
+      },
+    );
   }
 
   @override
@@ -99,7 +99,10 @@ class SplashFrameMain extends StatelessWidget {
 }
 
 class _SplashScaffold extends StatelessWidget {
-  const _SplashScaffold({required this.variant, this.child});
+  const _SplashScaffold({
+    required this.variant,
+    this.child,
+  });
 
   final _SplashBackgroundVariant variant;
   final Widget? child;
@@ -155,7 +158,10 @@ class _SplashBackground extends StatelessWidget {
 }
 
 class _IconPatternBand extends StatelessWidget {
-  const _IconPatternBand({required this.alignment, required this.heightFactor});
+  const _IconPatternBand({
+    required this.alignment,
+    required this.heightFactor,
+  });
 
   static const List<IconData> _icons = <IconData>[
     Icons.point_of_sale_outlined,
@@ -169,9 +175,9 @@ class _IconPatternBand extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtils screen = context.screen;
-    final double bandHeight = screen.height * heightFactor;
-    final double cellWidth = (screen.width / 5.2).clamp(72.0, 180.0).toDouble();
+    final Size screenSize = MediaQuery.sizeOf(context);
+    final double bandHeight = screenSize.height * heightFactor;
+    final double cellWidth = (screenSize.width / 5.2).clamp(96.0, 180.0).toDouble();
     final double runSpacing = (bandHeight * 0.20).clamp(18.0, 46.0).toDouble();
     final Color iconColor = AppColors.cD9D9D9.withAlpha(110);
 
@@ -179,7 +185,7 @@ class _IconPatternBand extends StatelessWidget {
       alignment: alignment,
       child: IgnorePointer(
         child: SizedBox(
-          width: screen.width,
+          width: screenSize.width,
           height: bandHeight,
           child: Wrap(
             alignment: WrapAlignment.spaceAround,
@@ -193,7 +199,11 @@ class _IconPatternBand extends StatelessWidget {
               return SizedBox(
                 width: cellWidth,
                 child: Center(
-                  child: Icon(iconData, size: iconSize, color: iconColor),
+                  child: Icon(
+                    iconData,
+                    size: iconSize,
+                    color: iconColor,
+                  ),
                 ),
               );
             }),
@@ -212,13 +222,14 @@ class _SplashMainLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtils screen = context.screen;
-    final double logoWidth = screen.responsive<double>(
-      mobile: screen.widthPercent(70).clamp(220, 360).toDouble(),
-      tablet: screen.widthPercent(56).clamp(320, 520).toDouble(),
-      desktop: screen.widthPercent(42).clamp(420, 760).toDouble(),
-    );
+    final Size screenSize = MediaQuery.sizeOf(context);
+    final double logoWidth =
+        (screenSize.width * 0.70).clamp(260.0, 760.0).toDouble();
 
-    return Image.asset(logoAssetPath, width: logoWidth, fit: BoxFit.contain);
+    return Image.asset(
+      logoAssetPath,
+      width: logoWidth,
+      fit: BoxFit.contain,
+    );
   }
 }
